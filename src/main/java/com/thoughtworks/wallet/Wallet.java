@@ -5,21 +5,23 @@ import java.util.List;
 
 public class Wallet {
 
+    private List<Currency> wallet = new ArrayList<>();
 
-
-    private List<Integer>wallet = new ArrayList<>();
-
-
-    public void deposit(int amount) throws NotAValidAmountException {
-        if(amount <= 0) throw new NotAValidAmountException("Amount is not Valid");
-        wallet.add(amount);
+    public void deposit(Currency currency) throws NotAValidAmountException {
+        if (currency.amount <= 0) throw new NotAValidAmountException("Amount is not Valid");
+        wallet.add(currency);
 
     }
 
 
-    public void retrieve(int amount) throws AmountNotPresentException {
-        if(!(wallet.contains(amount))) throw new AmountNotPresentException("Amount is not present");
-        wallet.remove(new Integer(amount));
+    public void retrieve(Currency currency) throws AmountNotPresentException {
+        if (!(wallet.contains(currency))) throw new AmountNotPresentException("Amount is not present");
+        wallet.remove(currency);
 
+    }
+
+    public double sum(Currency currency) {
+        double result = currency.convert(wallet);
+        return result;
     }
 }
