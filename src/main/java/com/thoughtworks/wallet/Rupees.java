@@ -16,9 +16,7 @@ public class Rupees extends Currency {
                 sum += currency.amount * 74.5;
             else
                 sum += currency.amount;
-
         }
         return sum;
     }
-
 }
