@@ -11,7 +11,7 @@ public class Dollars extends Currency {
     @Override
     public double convert(List<Currency> wallet) {
         for (Currency currency : wallet) {
-            if (currency instanceof Rupee)
+            if (currency instanceof Rupees)
                 sum += currency.amount/74.85;
             else
                 sum += currency.amount;

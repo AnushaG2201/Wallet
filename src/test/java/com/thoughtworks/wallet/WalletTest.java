@@ -8,7 +8,7 @@ public class WalletTest {
     @Test
     void shouldAllowDepositInWalletIfAmountIsGreaterThanZero() {
         Wallet wallet = new Wallet();
-        Rupee rupee = new Rupee(10);
+        Rupees rupee = new Rupees(10);
 
         assertDoesNotThrow(() -> wallet.deposit(rupee));
 
@@ -17,7 +17,7 @@ public class WalletTest {
     @Test
     void shouldReturnExceptionIfAmountIsZero() {
         Wallet wallet = new Wallet();
-        Rupee rupee = new Rupee(0);
+        Rupees rupee = new Rupees(0);
 
         assertThrows(NotAValidAmountException.class, () -> wallet.deposit(rupee));
     }
@@ -25,7 +25,7 @@ public class WalletTest {
     @Test
     void shouldReturnTheSpecifiedAmountIfAvailable() throws NotAValidAmountException {
         Wallet wallet = new Wallet();
-        Rupee rupee = new Rupee(10);
+        Rupees rupee = new Rupees(10);
 
         wallet.deposit(rupee);
 
@@ -36,8 +36,8 @@ public class WalletTest {
     @Test
     void shouldReturnExceptionIfAmountNotAvailable() throws NotAValidAmountException {
         Wallet wallet1 = new Wallet();
-        Rupee rupee1 = new Rupee(10);
-        Rupee rupee2 = new Rupee(20);
+        Rupees rupee1 = new Rupees(10);
+        Rupees rupee2 = new Rupees(20);
 
         wallet1.deposit(rupee1);
 
@@ -47,7 +47,7 @@ public class WalletTest {
     @Test
     void shouldReturnTotalAmountIfPreferredCurrencyIsRupee() throws NotAValidAmountException {
         Wallet wallet = new Wallet();
-        Rupee rupee = new Rupee(50);
+        Rupees rupee = new Rupees(50);
         Dollars dollars = new Dollars(1);
 
         wallet.deposit(rupee);
@@ -61,8 +61,8 @@ public class WalletTest {
     void shouldReturnTotalAmountIfPreferredCurrencyIsDollar() throws NotAValidAmountException {
 
         Wallet wallet1 = new Wallet();
-        Rupee rupee1 = new Rupee(74.85);
-        Rupee rupee2 = new Rupee(149.7);
+        Rupees rupee1 = new Rupees(74.85);
+        Rupees rupee2 = new Rupees(149.7);
         Dollars dollars = new Dollars(1);
 
         wallet1.deposit(rupee1);
